@@ -56,7 +56,7 @@ public class ConsumerService {
                     .trade_id(input.getTrade_id())
                     .build();
 
-            cryptoRepository.save(crypto);
+            //cryptoRepository.save(crypto);
         };
     }
 

@@ -6,6 +6,12 @@ spring:
     name: producer-service
   kafka:
     bootstrap-servers: localhost:9092
+  cloud:
+    discovery:
+      enabled: true
+    config:
+      enabled: false
+
 
 crypto:
   topic: crypto-ticks
