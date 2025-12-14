@@ -11,6 +11,7 @@
 	<groupId>ma.ensam</groupId>
 	<artifactId>crypto</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>crypto</name>
 	<description>realtime crypto analytics platform</description>
 	<url/>
