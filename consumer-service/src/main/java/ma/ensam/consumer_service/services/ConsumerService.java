@@ -3,6 +3,7 @@ package ma.ensam.consumer_service.services;
 import ma.ensam.consumer_service.domaine.DTO.CryptoDTO;
 import ma.ensam.consumer_service.domaine.entities.Crypto;
 import ma.ensam.consumer_service.repositories.CryptoRepository;
+import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,8 +16,11 @@ public class ConsumerService {
 
     private final CryptoRepository cryptoRepository;
 
-    public ConsumerService(CryptoRepository cryptoRepository) {
+    private final StreamBridge streamBridge;
+
+    public ConsumerService(CryptoRepository cryptoRepository, StreamBridge streamBridge) {
         this.cryptoRepository = cryptoRepository;
+        this.streamBridge = streamBridge;
     }
 
     @Bean
@@ -34,7 +38,8 @@ public class ConsumerService {
                     .trade_id(input.getTrade_id())
                     .build();
 
-            cryptoRepository.save(crypto);
+            //cryptoRepository.save(crypto);
+            streamBridge.send("vis", crypto);
         };
     }
 

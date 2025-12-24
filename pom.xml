@@ -48,6 +48,7 @@
 		<module>gateway-service</module>
 		<module>producer-service</module>
 		<module>machine-learning-service</module>
+		<module>visualization-service</module>
 	</modules>
 
 	<build>
